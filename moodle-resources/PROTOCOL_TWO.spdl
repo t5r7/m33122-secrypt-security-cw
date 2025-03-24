@@ -1,0 +1,25 @@
+protocol protocolThree(I,R)
+{
+    role I
+    {	
+	fresh Ni:Nonce;
+        var Nr:Nonce;
+        send_1(I,R, {I,R,Ni}sk(I));         
+	recv_2a(R,I, {Nr,Ni}pk(I));
+	recv_2b(R,I, {Ni,I}sk(R));         
+	send_3(I,R, {Nr,I}pk(R));
+	recv_4(R,I, {Nr,Ni}sk(R));         
+    }
+
+    role R
+    {
+        fresh Nr:Nonce;
+	var Ni:Nonce;
+        recv_1(I,R, {I,R,Ni}sk(I));         
+	send_2a(R,I, {Nr,Ni}pk(I));
+	send_2b(R,I, {Ni,I}sk(R));         
+	recv_3(I,R, {Nr,I}pk(R));
+	send_4(R,I, {Nr,Ni}sk(R));         
+    }
+}
+
