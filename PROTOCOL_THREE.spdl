@@ -1,0 +1,12 @@
+protocol protocolThree(I,R)
+{
+    role I
+    {
+    }
+
+    role R
+    {
+    }
+}
+
+

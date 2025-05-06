@@ -1,0 +1,11 @@
+>>> generate_protocol_three('485')
+Protocol specification for PROTOCOL_THREE (in common syntax)
+ 
+I, R :          Principal
+Ki, Kr :        Key
+Ni, Nr :        Nonce
+pk :            Principal -> Key
+ 
+1. I->R:  { I,R,Ki,Ni }pk(R)
+2. R->I:  { I,R }Ki, { Kr,Nr }pk(I)
+3. I->R:  { I,R }Kr
